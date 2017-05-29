@@ -97,7 +97,12 @@ void winMusic(void);
 ////Final Project New Function /////
 
   void BuzzerSettingAndCallMelo() ;
+  void  show7Seg(unsigned int recived,unsigned int ledNum);
 
+
+
+int UserScore  = 0;
+int ComputerScore = 0;
 
 
     //////////////////////
@@ -184,7 +189,7 @@ char array16[14][16] = {{"antagonistically"},{"canonicalization"},{"distributors
                         {"unidirectionally"},{"unrepresentative"} };
                         
 
-int keypadNum = 0,keypadNum2 = 0,keypadNum3 = 0,keypads = 0;
+int keypadNum = 0;
 char kelime[16] = "lanlunAn";       //_a____a_
 char dusdu[16] = "Level Dusdun";       //_a____a_      
 char hosgeldin[15] = "--WELCOME--";
@@ -228,8 +233,6 @@ void main(void) {
     
     while(PTH != 1);
                        //put2lcd(0xc0 , cmd);//buyuk olcak
-    randomIndex = randomNum();//random kelimem
-    PORTB = randomIndex;     //kacinci 
 
     SCI0BDL = 156; /*Set BAUD rate to 9.600*/ 
     SCI0BDH = 0;
@@ -289,14 +292,75 @@ void main(void) {
     delay_1ms(75);
     reset();   
     
-    
-     
-    
-       while(1);
+
+        while(1){
+                 
+                  openlcd();
+                  puts2lcd("TAS - KAGIT - MAKAS ");
+                  put2lcd(0xC0,CMD);
+                  puts2lcd("HANGISI");
+                  delay_1ms(75);
+                  reset();   
+                 PORTB = randomIndex;     //kacinci olduðu port b  gösteriliyor 
+                 keypadNum = kp_get_key(); // kullanýcýdan bir seçim alýyor . 
+                 randomIndex = randomNum();//random sayý taþ kaðýt makas için
+                 
+                    if(randomIndex == 1 && keypadNum == 1 ){ // Bilgisayar Taþ 
+                          //TEKRAR KAZANAN YOK
+                             delay_1ms(75);
+ 
+                    } else if(randomIndex == 1 && keypadNum == 2 ){ // Bilgisayar Taþ 
+                          //USER WÝN
+                         ++ UserScore; 
+                    } else if(randomIndex == 1 && keypadNum == 3 ){ // Bilgisayar Taþ 
+                          //COMPUTER WÝN
+                          ++ComputerScore ;
+                    } else  if(randomIndex == 2  && keypadNum == 1){ // Bilgisayar KAGIT 
+                          // COMPUTER WIN
+                         ++ ComputerScore  ;
+                    } else  if(randomIndex == 2  && keypadNum == 2){ // Bilgisayar KAGIT 
+                             //TEKRAR KAZANAN YOK
+                    }else  if(randomIndex == 2 && keypadNum == 3 ){ // Bilgisayar KAGIT 
+                             //  USER WIN
+                              ++ UserScore; 
+                    }
+                     else if(randomIndex == 3  && keypadNum == 1){   // Bilgisayar MAKAS
+                           //USER WÝN
+                           ++ UserScore; 
+
+                    } else if(randomIndex == 3  && keypadNum == 2){   // Bilgisayar MAKAS
+                           // COMPUTER WIN
+                         ++ComputerScore;
+                    } else if(randomIndex == 3  && keypadNum == 3){   // Bilgisayar MAKAS
+                          //TEKRAR KAZANAN YOK
+
+                    }
+                    
+                      openlcd();
+                      puts2lcd("USER SCORE ");
+                      put2lcd(0xC0,CMD);
+                      puts2lcd("LOOK 7 SEGMENT ");
+
+                      delay_1ms(75);
+                      reset();    
+                      show7Seg(UserScore,215);   // en sol 7 segment user score u
+                      delayTimerDelay();
+                      openlcd();
+                      puts2lcd("COMPUTER SCORE ");
+                      put2lcd(0xC0,CMD);
+                      puts2lcd("LOOK 7 SEGMENT ");
+                      delay_1ms(75);
+                      reset();  
+                      show7Seg(ComputerScore,254);   //en sað 7 segment computer scoru
+                      delayTimerDelay() ;
+                    
+        }
+
     
   __asm(swi);
 
-} 
+}
+ 
 
 
 
@@ -322,89 +386,11 @@ void main(void) {
   }
 
 
-//string olarak ekranabas
-void sayiBas(int skor){
-  
-  char  arrayim[16] = {0};
-  int i = 0;
-  int a = 0 , b = 0, c = 0, d = 0; 
-  a = skor%10;
-  
-  if(skor  > 10)
-    b = (skor/10)%10;
-  if(skor > 100)
-    c = (skor/100)%10;
-  if(skor > 1000)
-    d = (skor/1000)%10;
-  
-  if(skor  > 1000)
-    put2lcd(d + 48,DATA );
-  if(skor  > 100)
-   put2lcd(c + 48,DATA );
-   if(skor  > 10)
-    put2lcd(b + 48,DATA );
-  
-  
-  put2lcd(a + 48 ,DATA );
-  
-   
-  
-  
-}
-
-
-//oyunu bitirme olayim
-void bitir(void){
-  
-  openlcd();
-  puts2lcd("Bitti");
-  terminaleBas("Lose",4);
- // winMusic();
-  delay_1ms(800); 
-  puts2lcd(kelime);
-   delay_1ms(200);
-   __asm(swi);
-  
-  
-}
 
 
 
-// butun harfleri tempru girdi mi
-
- int temprumu(void){
-       int i;
-       
-       for( i = 0 ; i < sizeKelime; ++i )
-               if(showWord[i] !=  kelime[i])
-                  return -1;
-               
-               
-               
-       return 0;
-  
- }
 
 
-//harf varsa gosterecegim kelimeyi ona gore degistircem
-void manupileEt(char harf){
-   int i;
-   flag = 0;
-   for(i = 0 ; i < kolaylikIndexi; ++i){
-      if(kelime[i] == harf){
-           PTHs = 1;
-           flag = 1;
-          showWord[i] = harf;
-          
-      }
-     ;
-   }
-   if(flag == 0)
-      PTHs = 3;
-     ;
-   showWord[kolaylikIndexi] = '\0';
-  
-}
 
 
 
@@ -498,7 +484,7 @@ int randomNum()
   for(k = 0 ; k < 11; ++k);
   
   k = ((rand() + 4 + TCNT) );
-  c = k % 15;
+  c = k % 3;
   return c;
   
 }
@@ -677,6 +663,13 @@ int kp_get_key(void)
       Melo2();   
       disable();
  }
+ 
+ 
+ 
+ 
+
+
+
      /////////////////////final Project
 
    /////////////////////Hw2

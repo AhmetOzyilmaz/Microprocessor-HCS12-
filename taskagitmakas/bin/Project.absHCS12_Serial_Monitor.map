@@ -1,5 +1,5 @@
 *** EVALUATION ***
-PROGRAM "C:\Users\ASUS\Desktop\CSE 334 Microproceesor\Final_YUSUF_ALTUN_111044010\Final\bin\Project.abs"
+PROGRAM "D:\GitKrakenRepository\Microprocessor-HCS12-\TasKagitMakas\bin\Project.absHCS12_Serial_Monitor.abs"
 
 *********************************************************************************************
 TARGET SECTION
@@ -22,24 +22,24 @@ rtshc12.c.o (ansisi.lib)                Model: SMALL,         Lang: ANSI-C
 STARTUP SECTION
 ---------------------------------------------------------------------------------------------
 Entry point: 0xC029 (_Startup)
-_startupData is allocated at 0xC031 and uses 6 Bytes
+_startupData is allocated at 0xC03B and uses 6 Bytes
 extern struct _tagStartup {
   unsigned nofZeroOut     1
-  _Range   pZeroOut       0x1100     2168
-  _Copy    *toCopyDownBeg 0xC8F0
+  _Range   pZeroOut       0x1100     94
+  _Copy    *toCopyDownBeg 0xC793
 } _startupData;
 
 *********************************************************************************************
 SECTION-ALLOCATION SECTION
 Section Name                    Size  Type     From       To       Segment
 ---------------------------------------------------------------------------------------------
-.init                             49     R     0xC000     0xC030   ROM_C000
-.startData                        10     R     0xC031     0xC03A   ROM_C000
-.rodata1                         119     R     0xC03B     0xC0B1   ROM_C000
-.text                           1746     R     0xC0B2     0xC783   ROM_C000
-.copy                           2154     R     0xC8F0     0xD159   ROM_C000
+.init                             59     R     0xC000     0xC03A   ROM_C000
+.startData                        10     R     0xC03B     0xC044   ROM_C000
+.rodata1                         203     R     0xC045     0xC10F   ROM_C000
+.text                           1303     R     0xC110     0xC626   ROM_C000
+.copy                             88     R     0xC793     0xC7EA   ROM_C000
 .stack                           256   R/W     0x1000     0x10FF   RAM
-.data                           2158   R/W     0x1100     0x196D   RAM
+.data                             82   R/W     0x1100     0x1151   RAM
 .abs_section_8                     1   N/I        0x8        0x8   .absSeg0
 .abs_section_9                     1   N/I        0x9        0x9   .absSeg1
 .abs_section_a                     1   N/I        0xA        0xA   .absSeg2
@@ -566,13 +566,13 @@ Section Name                    Size  Type     From       To       Segment
 .abs_section_2ae                   2   N/I      0x2AE      0x2AF   .absSeg523
 .abs_section_2be                   2   N/I      0x2BE      0x2BF   .absSeg524
 .abs_section_ffe4                  2     R     0xFFE4     0xFFE5   .absSeg525
-.bss                              10   R/W     0x196E     0x1977   RAM
-RUNTIME                          364     R     0xC784     0xC8EF   ROM_C000
+.bss                              12   R/W     0x1152     0x115D   RAM
+RUNTIME                          364     R     0xC627     0xC792   ROM_C000
 .vectSeg526_vect                   2     R     0xFFFE     0xFFFF   .vectSeg526
 
 Summary of section sizes per section type:
-READ_ONLY (R):        115E (dec:     4446)
-READ_WRITE (R/W):      978 (dec:     2424)
+READ_ONLY (R):         7EF (dec:     2031)
+READ_WRITE (R/W):      15E (dec:      350)
 NO_INIT (N/I):         24E (dec:      590)
 
 *********************************************************************************************
@@ -638,7 +638,7 @@ MODULE:                 -- mc9s12dp256.c.o --
      _TIE                                        4C       1       1       1   .abs_section_4c
      _TSCR2                                      4D       1       1       0   .abs_section_4d
      _TFLG1                                      4E       1       1       2   .abs_section_4e
-     _TFLG2                                      4F       1       1       0   .abs_section_4f
+     _TFLG2                                      4F       1       1       3   .abs_section_4f
      _PACTL                                      60       1       1       0   .abs_section_60
      _PAFLG                                      61       1       1       0   .abs_section_61
      _MCCTL                                      66       1       1       0   .abs_section_66
@@ -665,10 +665,10 @@ MODULE:                 -- mc9s12dp256.c.o --
      _PWMSDN                                     C4       1       1       0   .abs_section_c4
      _SCI0CR1                                    CA       1       1       1   .abs_section_ca
      _SCI0CR2                                    CB       1       1       1   .abs_section_cb
-     _SCI0SR1                                    CC       1       1       2   .abs_section_cc
+     _SCI0SR1                                    CC       1       1       0   .abs_section_cc
      _SCI0SR2                                    CD       1       1       0   .abs_section_cd
      _SCI0DRH                                    CE       1       1       0   .abs_section_ce
-     _SCI0DRL                                    CF       1       1       2   .abs_section_cf
+     _SCI0DRL                                    CF       1       1       0   .abs_section_cf
      _SCI1CR1                                    D2       1       1       0   .abs_section_d2
      _SCI1CR2                                    D3       1       1       0   .abs_section_d3
      _SCI1SR1                                    D4       1       1       0   .abs_section_d4
@@ -969,7 +969,7 @@ MODULE:                 -- mc9s12dp256.c.o --
      _MODRR                                     257       1       1       0   .abs_section_257
      _PTP                                       258       1       1       0   .abs_section_258
      _PTIP                                      259       1       1       0   .abs_section_259
-     _DDRP                                      25A       1       1       0   .abs_section_25a
+     _DDRP                                      25A       1       1       1   .abs_section_25a
      _RDRP                                      25B       1       1       0   .abs_section_25b
      _PERP                                      25C       1       1       0   .abs_section_25c
      _PPSP                                      25D       1       1       0   .abs_section_25d
@@ -1048,8 +1048,8 @@ MODULE:                 -- mc9s12dp256.c.o --
      _CAN4TXDSR7                                2BB       1       1       0   .abs_section_2bb
      _CAN4TXDLR                                 2BC       1       1       0   .abs_section_2bc
      _CAN4TXTBPR                                2BD       1       1       0   .abs_section_2bd
-     _PORTAB                                      0       2       2       1   .abs_section_0
-     _DDRAB                                       2       2       2       2   .abs_section_2
+     _PORTAB                                      0       2       2       8   .abs_section_0
+     _DDRAB                                       2       2       2       3   .abs_section_2
      _PARTID                                     1A       2       2       0   .abs_section_1a
      _TCNT                                       44       2       2       1   .abs_section_44
      _TC0                                        50       2       2       0   .abs_section_50
@@ -1115,93 +1115,72 @@ MODULE:                 -- mc9s12dp256.c.o --
      _CAN4TXTSR                                 2BE       2       2       0   .abs_section_2be
 MODULE:                 -- main.c.o --
 - PROCEDURES:
-     main                                      C0B2     1D4     468      15   .text       
-     terminaleBas                              C286      30      48       3   .text       
-     SerTx1                                    C2B6       9       9       4   .text       
-     sayiBas                                   C2BF      B3     179       2   .text       
-     bitir                                     C372      28      40       1   .text       
-     dogrumu                                   C39A      24      36       1   .text       
-     manupileEt                                C3BE      41      65       1   .text       
-     reset                                     C3FF      23      35       7   .text       
-     openlcd                                   C422      2D      45       5   .text       
-     puts2lcd                                  C44F      1D      29      15   .text       
-     put2lcd                                   C46C      5C      92       8   .text       
-     delay_50us                                C4C8      1E      30       3   .text       
-     delay_1ms                                 C4E6      12      18      13   .text       
-     timCh5                                    C4F8      50      80       1   .text       
-     randomNum                                 C548      17      23       2   .text       
-     randomKelimeUret                          C55F      CF     207       2   .text       
-     yerlestir                                 C62E      33      51       2   .text       
-     winMusic                                  C661      69     105       1   .text       
-     startM                                    C6CA      43      67       1   .text       
-     kp_init                                   C70D       5       5       1   .text       
+     main                                      C110     1BF     447      26   .text       
+     reset                                     C2CF      23      35       1   .text       
+     openlcd                                   C2F2      2D      45       9   .text       
+     puts2lcd                                  C31F      1D      29      11   .text       
+     put2lcd                                   C33C      5C      92       7   .text       
+     randomNum                                 C398      17      23       1   .text       
+     kp_init                                   C3AF       5       5       1   .text       
+     kp_get_key                                C3B4      C8     200       1   .text       
+     BuzzerSettingAndCallMelo                  C47C      18      24       1   .text       
+     delayTimerDelay                           C494       F      15       2   .text       
+     TimerDelay                                C4A3       C      12       1   .text       
+     show7Seg                                  C4AF      3C      60       2   .text       
+     delay_50us                                C4EB      20      32       3   .text       
+     delay_1ms                                 C50B      12      18       7   .text       
+     timCh5                                    C51D      50      80       1   .text       
+     Melo2                                     C56D      48      72       1   .text       
 - VARIABLES:
-     STRING.YUSUF.216                          C03B       6       6       1   .rodata1    
-     STRING.ALTUN.217                          C041       6       6       1   .rodata1    
-     STRING.CSE_334.218                        C047       8       8       1   .rodata1    
-     STRING.Proje.219                          C04F       6       6       1   .rodata1    
-     STRING.Harf.Sayisi..220                   C055       D      13       1   .rodata1    
-     STRING.Harf.Sayisi..221                   C062       D      13       1   .rodata1    
-     STRING.Puan....222                        C06F       8       8       1   .rodata1    
-     STRING.Harf.Sayisi..223                   C077       D      13       1   .rodata1    
-     STRING.Puan....224                        C084       8       8       1   .rodata1    
-     STRING.Bitti.225                          C08C       6       6       1   .rodata1    
-     STRING.Lose.226                           C092       5       5       1   .rodata1    
-     STRING..Win.Game...227                    C097       C      12       1   .rodata1    
-     STRING....Kazandin....228                 C0A3       F      15       1   .rodata1    
-     array2                                    1100      1C      28       1   .data       
-     array3                                    111C      2A      42       1   .data       
-     array4                                    1146      38      56       1   .data       
-     array5                                    117E      46      70       1   .data       
-     array6                                    11C4      54      84       1   .data       
-     array7                                    1218      62      98       1   .data       
-     array8                                    127A      70     112       1   .data       
-     array9                                    12EA      7E     126       1   .data       
-     array10                                   1368      8C     140       1   .data       
-     array11                                   13F4      9A     154       1   .data       
-     array12                                   148E      A8     168       1   .data       
-     array13                                   1536      B6     182       1   .data       
-     array14                                   15EC      C4     196       1   .data       
-     array15                                   16B0      D2     210       1   .data       
-     array16                                   1782      E0     224       1   .data       
-     kelime                                    1862      10      16       6   .data       
-     dusdu                                     1872      10      16       1   .data       
-     hosgeldin                                 1882       F      15       1   .data       
-     dip                                       1891      14      20       1   .data       
-     aferin                                    18A5       F      15       1   .data       
-     sizeKelime                                18B4       2       2       6   .data       
-     showWord                                  18B6      10      16       9   .data       
-     puan                                      18C6       2       2       5   .data       
-     melody                                    18C8      A0     160       2   .data       
-     kolaylikIndexi                            1968       2       2       8   .data       
-     lastM                                     196E       2       2       3   .bss        
-     PTHs                                      1970       2       2      14   .bss        
-     yanlisSayi                                1972       2       2       4   .bss        
-     randomIndex                               1974       2       2      18   .bss        
-     flag                                      1976       2       2       4   .bss        
+     STRING.AHMET.216                          C045       6       6       1   .rodata1    
+     STRING.OZYILMAZ.217                       C04B       9       9       1   .rodata1    
+     STRING.111044014.218                      C054       A      10       1   .rodata1    
+     STRING.CSE_334.219                        C05E       8       8       1   .rodata1    
+     STRING.Proje.220                          C066       6       6       1   .rodata1    
+     STRING.TAS.KAGIT.221                      C06C       A      10       1   .rodata1    
+     STRING.MAKAS.OYUNU.222                    C076       C      12       1   .rodata1    
+     STRING.TAS.ISE.1.E.BAS.223                C082      10      16       1   .rodata1    
+     STRING.KAGIT.ISE.224                      C092       A      10       1   .rodata1    
+     STRING.2.YE.BAS.225                       C09C       9       9       1   .rodata1    
+     STRING.MAKAS.ISE.226                      C0A5       A      10       1   .rodata1    
+     STRING.3.E.BAS.227                        C0AF       8       8       1   .rodata1    
+     STRING.TAS...KAGIT...MAKAS..228           C0B7      15      21       1   .rodata1    
+     STRING.HANGISI.229                        C0CC       8       8       1   .rodata1    
+     STRING.USER.SCORE..230                    C0D4       C      12       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..231                C0E0      10      16       1   .rodata1    
+     STRING.COMPUTER.SCORE..232                C0F0      10      16       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..233                C100      10      16       1   .rodata1    
+     melody2                                   1100      3A      58       1   .data       
+     dip                                       113A      14      20       1   .data       
+     lastM                                     1152       2       2       3   .bss        
+     PTHs                                      1154       2       2       7   .bss        
+     UserScore                                 1156       2       2       3   .bss        
+     ComputerScore                             1158       2       2       3   .bss        
+     keypadNum                                 115A       2       2       5   .bss        
+     randomIndex                               115C       2       2       7   .bss        
      _Vector_13                                FFE4       2       2       0   .abs_section_ffe4
 MODULE:                 -- Start12.c.o --
 - PROCEDURES:
      Init                                      C000      29      41       1   .init       
-     _Startup                                  C029       8       8       0   .init       
+     _Startup                                  C029      12      18       0   .init       
 - VARIABLES:
-     _startupData                              C031       6       6       3   .startData  
+     _startupData                              C03B       6       6       3   .startData  
 - LABELS:
      __SEG_END_SSTACK                          1100       0       0       1               
 MODULE:                 -- STDLIB.C.o (ansisi.lib) --
 - PROCEDURES:
-     rand                                      C712      72     114       1   .text       
+     rand                                      C5B5      72     114       1   .text       
 - VARIABLES:
-     seed                                      196A       4       4      12   .data       
+     seed                                      114E       4       4      12   .data       
 MODULE:                 -- rtshc12.c.o (ansisi.lib) --
 - PROCEDURES:
-     _LNEG                                     C784       D      13       1   RUNTIME     
-     _LMULS16x32                               C791      1F      31       2   RUNTIME     
-     _lDivMod                                  C7B0      BE     190       4   RUNTIME     
-     _NEG_P                                    C86E       F      15       7   RUNTIME     
-     _LDIVS                                    C87D      35      53       1   RUNTIME     
-     _LMODS                                    C8B2      2A      42       1   RUNTIME     
-     _CASE_CHECKED_BYTE                        C8DC      14      20       1   RUNTIME     
+     _LNEG                                     C627       D      13       1   RUNTIME     
+     _LMULS16x32                               C634      1F      31       2   RUNTIME     
+     _lDivMod                                  C653      BE     190       4   RUNTIME     
+     _NEG_P                                    C711       F      15       7   RUNTIME     
+     _LDIVS                                    C720      35      53       1   RUNTIME     
+     _LMODS                                    C755      2A      42       1   RUNTIME     
+     _CASE_CHECKED_BYTE                        C77F      14      20       1   RUNTIME     
 - VARIABLES:
 
 *********************************************************************************************
@@ -1209,32 +1188,32 @@ MODULE STATISTIC
   Name                                      Data   Code  Const
 ---------------------------------------------------------------------------------------------
   mc9s12dp256.c.o                            590      0      0
-  main.c.o                                  2164   1632    121
-  Start12.c.o                                  0     49      0
+  main.c.o                                    90   1189    205
+  Start12.c.o                                  0     59      0
   STDLIB.C.o (ansisi.lib)                      4    114      0
   rtshc12.c.o (ansisi.lib)                     0    364      0
-  other                                      256     12   2154
+  other                                      256     12     88
 
 *********************************************************************************************
 SECTION USE IN OBJECT-ALLOCATION SECTION
 ---------------------------------------------------------------------------------------------
 SECTION: ".text"
-  main terminaleBas SerTx1 sayiBas bitir dogrumu manupileEt reset openlcd 
-  puts2lcd put2lcd delay_50us delay_1ms timCh5 randomNum randomKelimeUret 
-  yerlestir winMusic startM kp_init rand 
+  main reset openlcd puts2lcd put2lcd randomNum kp_init kp_get_key 
+  BuzzerSettingAndCallMelo delayTimerDelay TimerDelay show7Seg delay_50us 
+  delay_1ms timCh5 Melo2 rand 
 SECTION: ".data"
-  array2 array3 array4 array5 array6 array7 array8 array9 array10 array11 
-  array12 array13 array14 array15 array16 kelime dusdu hosgeldin dip aferin 
-  sizeKelime showWord puan melody kolaylikIndexi seed 
+  melody2 dip seed 
 SECTION: ".bss"
-  lastM PTHs yanlisSayi randomIndex flag 
+  lastM PTHs UserScore ComputerScore keypadNum randomIndex 
 SECTION: ".init"
   Init _Startup 
 SECTION: ".rodata1"
-  STRING.YUSUF.216 STRING.ALTUN.217 STRING.CSE_334.218 STRING.Proje.219 
-  STRING.Harf.Sayisi..220 STRING.Harf.Sayisi..221 STRING.Puan....222 
-  STRING.Harf.Sayisi..223 STRING.Puan....224 STRING.Bitti.225 STRING.Lose.226 
-  STRING..Win.Game...227 STRING....Kazandin....228 
+  STRING.AHMET.216 STRING.OZYILMAZ.217 STRING.111044014.218 STRING.CSE_334.219 
+  STRING.Proje.220 STRING.TAS.KAGIT.221 STRING.MAKAS.OYUNU.222 
+  STRING.TAS.ISE.1.E.BAS.223 STRING.KAGIT.ISE.224 STRING.2.YE.BAS.225 
+  STRING.MAKAS.ISE.226 STRING.3.E.BAS.227 STRING.TAS...KAGIT...MAKAS..228 
+  STRING.HANGISI.229 STRING.USER.SCORE..230 STRING.LOOK.7.SEGMENT..231 
+  STRING.COMPUTER.SCORE..232 STRING.LOOK.7.SEGMENT..233 
 SECTION: ".abs_section_8"
   _PORTE 
 SECTION: ".abs_section_9"
@@ -2294,8 +2273,8 @@ SECTION: "RUNTIME"
 OBJECT LIST SORTED BY ADDRESS
      Name                                      Addr   hSize   dSize     Ref    Section   RLIB
 ---------------------------------------------------------------------------------------------
-     _PORTAB                                      0       2       2       1   .abs_section_0
-     _DDRAB                                       2       2       2       2   .abs_section_2
+     _PORTAB                                      0       2       2       8   .abs_section_0
+     _DDRAB                                       2       2       2       3   .abs_section_2
      _PORTE                                       8       1       1       0   .abs_section_8
      _DDRE                                        9       1       1       0   .abs_section_9
      _PEAR                                        A       1       1       0   .abs_section_a
@@ -2348,7 +2327,7 @@ OBJECT LIST SORTED BY ADDRESS
      _TIE                                        4C       1       1       1   .abs_section_4c
      _TSCR2                                      4D       1       1       0   .abs_section_4d
      _TFLG1                                      4E       1       1       2   .abs_section_4e
-     _TFLG2                                      4F       1       1       0   .abs_section_4f
+     _TFLG2                                      4F       1       1       3   .abs_section_4f
      _TC0                                        50       2       2       0   .abs_section_50
      _TC1                                        52       2       2       0   .abs_section_52
      _TC2                                        54       2       2       0   .abs_section_54
@@ -2415,10 +2394,10 @@ OBJECT LIST SORTED BY ADDRESS
      _SCI0BD                                     C8       2       2       2   .abs_section_c8
      _SCI0CR1                                    CA       1       1       1   .abs_section_ca
      _SCI0CR2                                    CB       1       1       1   .abs_section_cb
-     _SCI0SR1                                    CC       1       1       2   .abs_section_cc
+     _SCI0SR1                                    CC       1       1       0   .abs_section_cc
      _SCI0SR2                                    CD       1       1       0   .abs_section_cd
      _SCI0DRH                                    CE       1       1       0   .abs_section_ce
-     _SCI0DRL                                    CF       1       1       2   .abs_section_cf
+     _SCI0DRL                                    CF       1       1       0   .abs_section_cf
      _SCI1BD                                     D0       2       2       0   .abs_section_d0
      _SCI1CR1                                    D2       1       1       0   .abs_section_d2
      _SCI1CR2                                    D3       1       1       0   .abs_section_d3
@@ -2738,7 +2717,7 @@ OBJECT LIST SORTED BY ADDRESS
      _MODRR                                     257       1       1       0   .abs_section_257
      _PTP                                       258       1       1       0   .abs_section_258
      _PTIP                                      259       1       1       0   .abs_section_259
-     _DDRP                                      25A       1       1       0   .abs_section_25a
+     _DDRP                                      25A       1       1       1   .abs_section_25a
      _RDRP                                      25B       1       1       0   .abs_section_25b
      _PERP                                      25C       1       1       0   .abs_section_25c
      _PPSP                                      25D       1       1       0   .abs_section_25d
@@ -2819,80 +2798,59 @@ OBJECT LIST SORTED BY ADDRESS
      _CAN4TXDLR                                 2BC       1       1       0   .abs_section_2bc
      _CAN4TXTBPR                                2BD       1       1       0   .abs_section_2bd
      _CAN4TXTSR                                 2BE       2       2       0   .abs_section_2be
-     array2                                    1100      1C      28       1   .data       
-     array3                                    111C      2A      42       1   .data       
-     array4                                    1146      38      56       1   .data       
-     array5                                    117E      46      70       1   .data       
-     array6                                    11C4      54      84       1   .data       
-     array7                                    1218      62      98       1   .data       
-     array8                                    127A      70     112       1   .data       
-     array9                                    12EA      7E     126       1   .data       
-     array10                                   1368      8C     140       1   .data       
-     array11                                   13F4      9A     154       1   .data       
-     array12                                   148E      A8     168       1   .data       
-     array13                                   1536      B6     182       1   .data       
-     array14                                   15EC      C4     196       1   .data       
-     array15                                   16B0      D2     210       1   .data       
-     array16                                   1782      E0     224       1   .data       
-     kelime                                    1862      10      16       6   .data       
-     dusdu                                     1872      10      16       1   .data       
-     hosgeldin                                 1882       F      15       1   .data       
-     dip                                       1891      14      20       1   .data       
-     aferin                                    18A5       F      15       1   .data       
-     sizeKelime                                18B4       2       2       6   .data       
-     showWord                                  18B6      10      16       9   .data       
-     puan                                      18C6       2       2       5   .data       
-     melody                                    18C8      A0     160       2   .data       
-     kolaylikIndexi                            1968       2       2       8   .data       
-     seed                                      196A       4       4      12   .data       
-     lastM                                     196E       2       2       3   .bss        
-     PTHs                                      1970       2       2      14   .bss        
-     yanlisSayi                                1972       2       2       4   .bss        
-     randomIndex                               1974       2       2      18   .bss        
-     flag                                      1976       2       2       4   .bss        
+     melody2                                   1100      3A      58       1   .data       
+     dip                                       113A      14      20       1   .data       
+     seed                                      114E       4       4      12   .data       
+     lastM                                     1152       2       2       3   .bss        
+     PTHs                                      1154       2       2       7   .bss        
+     UserScore                                 1156       2       2       3   .bss        
+     ComputerScore                             1158       2       2       3   .bss        
+     keypadNum                                 115A       2       2       5   .bss        
+     randomIndex                               115C       2       2       7   .bss        
      Init                                      C000      29      41       1   .init       
-     _Startup                                  C029       8       8       0   .init       
-     STRING.YUSUF.216                          C03B       6       6       1   .rodata1    
-     STRING.ALTUN.217                          C041       6       6       1   .rodata1    
-     STRING.CSE_334.218                        C047       8       8       1   .rodata1    
-     STRING.Proje.219                          C04F       6       6       1   .rodata1    
-     STRING.Harf.Sayisi..220                   C055       D      13       1   .rodata1    
-     STRING.Harf.Sayisi..221                   C062       D      13       1   .rodata1    
-     STRING.Puan....222                        C06F       8       8       1   .rodata1    
-     STRING.Harf.Sayisi..223                   C077       D      13       1   .rodata1    
-     STRING.Puan....224                        C084       8       8       1   .rodata1    
-     STRING.Bitti.225                          C08C       6       6       1   .rodata1    
-     STRING.Lose.226                           C092       5       5       1   .rodata1    
-     STRING..Win.Game...227                    C097       C      12       1   .rodata1    
-     STRING....Kazandin....228                 C0A3       F      15       1   .rodata1    
-     main                                      C0B2     1D4     468      15   .text       
-     terminaleBas                              C286      30      48       3   .text       
-     SerTx1                                    C2B6       9       9       4   .text       
-     sayiBas                                   C2BF      B3     179       2   .text       
-     bitir                                     C372      28      40       1   .text       
-     dogrumu                                   C39A      24      36       1   .text       
-     manupileEt                                C3BE      41      65       1   .text       
-     reset                                     C3FF      23      35       7   .text       
-     openlcd                                   C422      2D      45       5   .text       
-     puts2lcd                                  C44F      1D      29      15   .text       
-     put2lcd                                   C46C      5C      92       8   .text       
-     delay_50us                                C4C8      1E      30       3   .text       
-     delay_1ms                                 C4E6      12      18      13   .text       
-     timCh5                                    C4F8      50      80       1   .text       
-     randomNum                                 C548      17      23       2   .text       
-     randomKelimeUret                          C55F      CF     207       2   .text       
-     yerlestir                                 C62E      33      51       2   .text       
-     winMusic                                  C661      69     105       1   .text       
-     startM                                    C6CA      43      67       1   .text       
-     kp_init                                   C70D       5       5       1   .text       
-     rand                                      C712      72     114       1   .text       
-     _LNEG                                     C784       D      13       1   RUNTIME     
-     _LMULS16x32                               C791      1F      31       2   RUNTIME     
-     _lDivMod                                  C7B0      BE     190       4   RUNTIME     
-     _NEG_P                                    C86E       F      15       7   RUNTIME     
-     _LDIVS                                    C87D      35      53       1   RUNTIME     
-     _LMODS                                    C8B2      2A      42       1   RUNTIME     
-     _CASE_CHECKED_BYTE                        C8DC      14      20       1   RUNTIME     
+     _Startup                                  C029      12      18       0   .init       
+     STRING.AHMET.216                          C045       6       6       1   .rodata1    
+     STRING.OZYILMAZ.217                       C04B       9       9       1   .rodata1    
+     STRING.111044014.218                      C054       A      10       1   .rodata1    
+     STRING.CSE_334.219                        C05E       8       8       1   .rodata1    
+     STRING.Proje.220                          C066       6       6       1   .rodata1    
+     STRING.TAS.KAGIT.221                      C06C       A      10       1   .rodata1    
+     STRING.MAKAS.OYUNU.222                    C076       C      12       1   .rodata1    
+     STRING.TAS.ISE.1.E.BAS.223                C082      10      16       1   .rodata1    
+     STRING.KAGIT.ISE.224                      C092       A      10       1   .rodata1    
+     STRING.2.YE.BAS.225                       C09C       9       9       1   .rodata1    
+     STRING.MAKAS.ISE.226                      C0A5       A      10       1   .rodata1    
+     STRING.3.E.BAS.227                        C0AF       8       8       1   .rodata1    
+     STRING.TAS...KAGIT...MAKAS..228           C0B7      15      21       1   .rodata1    
+     STRING.HANGISI.229                        C0CC       8       8       1   .rodata1    
+     STRING.USER.SCORE..230                    C0D4       C      12       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..231                C0E0      10      16       1   .rodata1    
+     STRING.COMPUTER.SCORE..232                C0F0      10      16       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..233                C100      10      16       1   .rodata1    
+     main                                      C110     1BF     447      26   .text       
+     reset                                     C2CF      23      35       1   .text       
+     openlcd                                   C2F2      2D      45       9   .text       
+     puts2lcd                                  C31F      1D      29      11   .text       
+     put2lcd                                   C33C      5C      92       7   .text       
+     randomNum                                 C398      17      23       1   .text       
+     kp_init                                   C3AF       5       5       1   .text       
+     kp_get_key                                C3B4      C8     200       1   .text       
+     BuzzerSettingAndCallMelo                  C47C      18      24       1   .text       
+     delayTimerDelay                           C494       F      15       2   .text       
+     TimerDelay                                C4A3       C      12       1   .text       
+     show7Seg                                  C4AF      3C      60       2   .text       
+     delay_50us                                C4EB      20      32       3   .text       
+     delay_1ms                                 C50B      12      18       7   .text       
+     timCh5                                    C51D      50      80       1   .text       
+     Melo2                                     C56D      48      72       1   .text       
+     rand                                      C5B5      72     114       1   .text       
+     _LNEG                                     C627       D      13       1   RUNTIME     
+     _LMULS16x32                               C634      1F      31       2   RUNTIME     
+     _lDivMod                                  C653      BE     190       4   RUNTIME     
+     _NEG_P                                    C711       F      15       7   RUNTIME     
+     _LDIVS                                    C720      35      53       1   RUNTIME     
+     _LMODS                                    C755      2A      42       1   RUNTIME     
+     _CASE_CHECKED_BYTE                        C77F      14      20       1   RUNTIME     
      _Vector_13                                FFE4       2       2       0   .abs_section_ffe4
 
 *********************************************************************************************
@@ -2900,7 +2858,8 @@ UNUSED-OBJECTS SECTION
 ---------------------------------------------------------------------------------------------
 NOT USED PROCEDURES
 main.c.o:
-  buzer kp_get_key 
+  terminaleBas SerTx1 buzer randomKelimeUret yerlestir winMusic startM 
+  delayTimerDelay5s delayTimerDelay10s Melo Melo1 
 STDLIB.C.o (ansisi.lib):
   atexit getenv system mblen mbtowc wctomb mbstowcs wcstombs CheckCharWithBase 
   _strtoul strtoul _strtol strtol _itoa bsearch swap qsort div ldiv abs labs 
@@ -2913,7 +2872,10 @@ rtshc12.c.o (ansisi.lib):
   _CASE_SEARCH_8_BYTE _FCALL _FPCMP 
 NOT USED VARIABLES
 main.c.o:
-  keypadNum keypadNum2 keypadNum3 keypads 
+  STRING..Win.Game...234 STRING....Kazandin....235 melody melody1 melody3 
+  array2 array3 array4 array5 array6 array7 array8 array9 array10 array11 
+  array12 array13 array14 array15 array16 kelime dusdu hosgeldin aferin 
+  sizeKelime showWord puan kolaylikIndexi flag yanlisSayi 
 STDLIB.C.o (ansisi.lib):
   channels errno 
 rtshc12.c.o (ansisi.lib):
@@ -2922,243 +2884,26 @@ rtshc12.c.o (ansisi.lib):
 *********************************************************************************************
 COPYDOWN SECTION
 ---------------------------------------------------------------------------------------------
-------- ROM-ADDRESS: 0xC8F0 ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xC793 ---- SIZE       4 ---
 Filling bytes inserted
- 05A21100
-------- ROM-ADDRESS: 0xC8F4 ---- RAM-ADDRESS: 0x1100 ---- SIZE      28 ---
-Name of initialized Object : array2
- 616D776568 65676F6D65 6F6E757075
- 6D616E6A6F 6B616B696F 787469
-------- ROM-ADDRESS: 0xC910 ---- RAM-ADDRESS: 0x111C ---- SIZE      42 ---
-Name of initialized Object : array3
- 6172656C6F 6C74776F6D 6170746167
- 706F697375 707A6F6F6D 6F636D6F64
- 7269616A6F 626A6F656F 7073
-------- ROM-ADDRESS: 0xC93A ---- RAM-ADDRESS: 0x1146 ---- SIZE      56 ---
-Name of initialized Object : array4
- 6675737367 61696E6761 6C656A7574
- 736B656570 726F76657A 6F6F73676C
- 617261626C 65666C6178 666C65786B
- 65656E6C6F 75647A6F6F 6D
-------- ROM-ADDRESS: 0xC972 ---- RAM-ADDRESS: 0x117E ---- SIZE      70 ---
-Name of initialized Object : array5
- 7961726473 737761726D 77616B6564
- 6D61726573 736B696666 63616E6F6E
- 636F766573 7761676F6E 7765646765
- 736D617368 706F756E64 73616C7473
- 6D75736564 63656C6C73
-------- ROM-ADDRESS: 0xC9B8 ---- RAM-ADDRESS: 0x11C4 ---- SIZE      84 ---
-Name of initialized Object : array6
- 616D617A65 7263756467 656C637566
- 666564676C 6F7665726C 6F67676564
- 7069726163 79736C6F70 65737A6F6D
- 6269657A6F 6469616377 696E646564
- 79656F6D61 6E7A697263 6F6E7A6562
- 726173776F 62626C65
-------- ROM-ADDRESS: 0xCA0C ---- RAM-ADDRESS: 0x1218 ---- SIZE      98 ---
-Name of initialized Object : array7
- 6162646F6D 656E616269 64696E6761
- 62696C6974 7962726F74 6865726E75
- 6767657473 6C61777965 727368616D
- 6D65727373 6C61707065 6472657374
- 6172747265 7374616765 7265736F6C
- 7665726562 75696C7463 686F707065
- 646578706C 6F6465
-------- ROM-ADDRESS: 0xCA6E ---- RAM-ADDRESS: 0x127A ---- SIZE     112 ---
-Name of initialized Object : array8
- 617574686F 7265646170 6F74686567
- 6D61756461 6369747962 6172656E65
- 7373626173 73696E6574 6361737472
- 617465636F 6E6E6F7465 6464656365
- 6976657364 6570726176 6564646573
- 7365727473 666C696E63 686564696E
- 6469726563 746F757473 7472697070
- 656E616C69 7A65
-------- ROM-ADDRESS: 0xCADE ---- RAM-ADDRESS: 0x12EA ---- SIZE     126 ---
-Name of initialized Object : array9
- 6173796D6D 6574727962 6172626563
- 7565736272 796F706879 7465636F6E
- 7365727665 7365787065 6374696E67
- 696E666563 74696E676C 7564696372
- 6F75736D69 64706F696E 74736F6C69
- 676F63656E 65706F7070 79636F636B
- 726567696D 656E747373 6572696F75
- 736C797375 6273637269 7074756E73
- 706F696C65 64
-------- ROM-ADDRESS: 0xCB5C ---- RAM-ADDRESS: 0x1368 ---- SIZE     140 ---
-Name of initialized Object : array10
- 6162657272 6174696F6E 616E74696E
- 6F6D69616E 6261636B73 7461697273
- 6261636B73 74726F6B65 6265717565
- 617468616C 626F617473 7761696E73
- 636C696E69 63616C6C79 636F6E6765
- 6E6974616C 6561727468 7175616B65
- 6672616772 616E746C79 696E74696D
- 6964617465 7061747269 6172636873
- 7370656563 686C657373 756E646572
- 74616B6573
-------- ROM-ADDRESS: 0xCBE8 ---- RAM-ADDRESS: 0x13F4 ---- SIZE     154 ---
-Name of initialized Object : array11
- 616E656E63 657068616C 7961636375
- 6D756C6174 656461696D 6C6573736E
- 657373616E 7461676F6E 69736D7362
- 6F74746C65 6E65636B73 627572676C
- 6172697A65 73636F6E66 6F726D6973
- 7473646573 63656E6465 6E74736475
- 706C696361 7469766566 6964646C65
- 737469636B 6865616468 756E746572
- 73696E6E6F 63756C6174 65736D6574
- 616C776F72 6B65727061 7465726E6F
- 73746572
-------- ROM-ADDRESS: 0xCC82 ---- RAM-ADDRESS: 0x148E ---- SIZE     168 ---
-Name of initialized Object : array12
- 6162736F6C 7574656E65 7373616273
- 7472616374 696F6E7361 6E74696F78
- 6964616E74 7362757368 776861636B
- 696E67636F 6D70656E73 6174696E67
- 636F756E74 6572706F69 6E7464656D
- 6F6E737472 61746F7264 6967697469
- 7A6174696F 6E64697368 6F6E6F7261
- 626C65656C 656374726F 6C79746573
- 6578616365 7262617469 6E67707265
- 7373757269 7A696E6775 6E72656173
- 6F6E61626C 6577697468 686F6C6469
- 6E6773
-------- ROM-ADDRESS: 0xCD2A ---- RAM-ADDRESS: 0x1536 ---- SIZE     182 ---
-Name of initialized Object : array13
- 616C706861 626574697A 696E67616C
- 7465726E61 746976656C 796170706C
- 6963616269 6C69747963 68616E6765
- 6162696C69 747963616E 6F6E696361
- 6C697A6573 646563656E 7472616C69
- 7A65646465 76656C6F70 6D656E7461
- 6C656C6563 74726F6375 74696E6765
- 6C65637472 6F63757469 6F6E656C65
- 6374726F70 686F727573 6578746572
- 6D696E6174 696E67696E 6469766964
- 75616C6973 6D6D696372 6F6F726761
- 6E69736D6E 6F6E63756D 756C617469
- 7665
-------- ROM-ADDRESS: 0xCDE0 ---- RAM-ADDRESS: 0x15EC ---- SIZE     182 ---
-Name of initialized Object : array14
- 617070726F 7072696174 696F6E7361
- 7070726F78 696D617469 6F6E736172
- 636861656F 6C6F676963 616C636C61
- 757374726F 70686F6269 61636C6561
- 72696E6768 6F75736573 636C696D61
- 746F6C6F67 6973747363 726564656E
- 7469616C69 736D736465 6E6F6D696E
- 6174696F6E 616C646973 6170706F69
- 6E746D656E 74696E6469 67656E6F75
- 736E657373 696E646976 696475616C
- 697374736D 6574686F64 6F6C6F6769
- 63616C776F 7274687768 696C656E65
- 7373
-------- ROM-ADDRESS: 0xCE96 ---- SIZE       4 ---
-Filling bytes inserted
- 02BE16B0
-------- ROM-ADDRESS: 0xCE9A ---- RAM-ADDRESS: 0x16B0 ---- SIZE     210 ---
-Name of initialized Object : array15
- 636F756E74 6572657861 6D706C6573
- 636F756E74 65726D6561 7375726573
- 636F6E7363 69656E7469 6F75736C79
- 656C656374 7269666963 6174696F6E
- 656C656374 726F636865 6D6963616C
- 66756E6461 6D656E7461 6C69737473
- 6964656E74 6966696361 74696F6E73
- 6D69736170 7072656865 6E73696F6E
- 6D69736170 70726F7072 6961746564
- 7072657365 7276617469 6F6E697374
- 7073796368 6F6368656D 6963616C73
- 726573706F 6E7369626C 656E657373
- 756E636F6E 7363696F75 736E657373
- 7765617468 657270726F 6F66696E67
-------- ROM-ADDRESS: 0xCF6C ---- RAM-ADDRESS: 0x1782 ---- SIZE     224 ---
-Name of initialized Object : array16
- 616E746167 6F6E697374 6963616C6C
- 7963616E6F 6E6963616C 697A617469
- 6F6E646973 7472696275 746F727368
- 6970736D75 6C74697072 6F6772616D
- 6D696E6775 6E69646972 656374696F
- 6E616C6C79 756E726570 726573656E
- 7461746976 656E6F6E62 696F646567
- 7261646162 6C6573656E 736174696F
- 6E616C697A 696E67616E 7461676F6E
- 6973746963 616C6C7963 616E6F6E69
- 63616C697A 6174696F6E 6469737472
- 696275746F 7273686970 736D756C74
- 6970726F67 72616D6D69 6E67756E69
- 6469726563 74696F6E61 6C6C79756E
- 7265707265 73656E7461 74697665
-------- ROM-ADDRESS: 0xD04C ---- RAM-ADDRESS: 0x1862 ---- SIZE       8 ---
-Name of initialized Object : kelime
- 6C616E6C75 6E416E
-------- ROM-ADDRESS: 0xD054 ---- SIZE       8 ---
-Filling bytes inserted
- 0000000000 000000
-------- ROM-ADDRESS: 0xD05C ---- RAM-ADDRESS: 0x1872 ---- SIZE      12 ---
-Name of initialized Object : dusdu
- 4C6576656C 2044757364 756E
-------- ROM-ADDRESS: 0xD068 ---- SIZE       4 ---
-Filling bytes inserted
- 00000000
-------- ROM-ADDRESS: 0xD06C ---- RAM-ADDRESS: 0x1882 ---- SIZE      13 ---
-Name of initialized Object : hosgeldin
- 2D2D486F73 67656C6469 6E2D2D
-------- ROM-ADDRESS: 0xD079 ---- SIZE       2 ---
-Filling bytes inserted
- 0000
-------- ROM-ADDRESS: 0xD07B ---- RAM-ADDRESS: 0x1891 ---- SIZE      16 ---
+ 00521100
+------- ROM-ADDRESS: 0xC797 ---- RAM-ADDRESS: 0x1100 ---- SIZE      58 ---
+Name of initialized Object : melody2
+ 7794779477 9477947794 7794779485
+ E88E0B85E8 8E0BB202B2 02B20285E8
+ 8E0B85E88E 0BB2025FAA 779485E88E
+ 0B85E88E0B B202B202B2 02B202
+------- ROM-ADDRESS: 0xC7D1 ---- RAM-ADDRESS: 0x113A ---- SIZE      16 ---
 Name of initialized Object : dip
  4469702073 7769746368 2031207961
  70
-------- ROM-ADDRESS: 0xD08B ---- SIZE       4 ---
+------- ROM-ADDRESS: 0xC7E1 ---- SIZE       7 ---
 Filling bytes inserted
- 00000000
-------- ROM-ADDRESS: 0xD08F ---- RAM-ADDRESS: 0x18A5 ---- SIZE      14 ---
-Name of initialized Object : aferin
- 4166657269 6E2053616E 61203B29
-------- ROM-ADDRESS: 0xD09D ---- SIZE       2 ---
-Filling bytes inserted
- 0000
-------- ROM-ADDRESS: 0xD09F ---- RAM-ADDRESS: 0x18B5 ---- SIZE       1 ---
-Name of initialized Object : sizeKelime:1
- 02
-------- ROM-ADDRESS: 0xD0A0 ---- RAM-ADDRESS: 0x18B6 ---- SIZE      14 ---
-Name of initialized Object : showWord
- 5F5F5F5F5F 5F5F5F5F5F 5F5F5F5F
-------- ROM-ADDRESS: 0xD0AE ---- SIZE       2 ---
-Filling bytes inserted
- 0000
-------- ROM-ADDRESS: 0xD0B0 ---- RAM-ADDRESS: 0x18C6 ---- SIZE       2 ---
-Name of initialized Object : puan
- 07D0
-------- ROM-ADDRESS: 0xD0B2 ---- RAM-ADDRESS: 0x18C8 ---- SIZE     160 ---
-Name of initialized Object : melody
- B399B2028E 0B85E87794 6A885FAA50
- 0A5FAA5FAA 5FAA27105F AA5FAA6A88
- 5FAA500A27 105FAA2710 6A88271027
- 1077945FAA 5FAA85E85F AA5FAAB399
- 2710B20227 10B399B399 5FAA77945F
- AA500AB399 2710500A50 0A2710500A
- 27106A885F AAB2025FAA 6A885FAA5F
- AA77945FAA 5FAA5FAA5F AA5FAAB399
- B2025FAAB3 99B3995FAA 77945FAA50
- 0AB3995FAA 500A500A5F AA5FAA5FAA
- 6A885FAAB2 0227105FAA
-------- ROM-ADDRESS: 0xD152 ---- SIZE       1 ---
-Filling bytes inserted
- 00
-------- ROM-ADDRESS: 0xD153 ---- RAM-ADDRESS: 0x1969 ---- SIZE       1 ---
-Name of initialized Object : kolaylikIndexi:1
- 02
-------- ROM-ADDRESS: 0xD154 ---- SIZE       3 ---
-Filling bytes inserted
- 000000
-------- ROM-ADDRESS: 0xD157 ---- RAM-ADDRESS: 0x196D ---- SIZE       1 ---
+ 0000000000 0000
+------- ROM-ADDRESS: 0xC7E8 ---- RAM-ADDRESS: 0x1151 ---- SIZE       1 ---
 Name of initialized Object : seed:3
  01
-------- ROM-ADDRESS: 0xD158 ---- SIZE       2 ---
+------- ROM-ADDRESS: 0xC7E9 ---- SIZE       2 ---
 Filling bytes inserted
  0000
 
@@ -3168,39 +2913,31 @@ OBJECT-DEPENDENCIES SECTION
 Init                      USES _startupData 
 _Startup                  USES __SEG_END_SSTACK Init main 
 main                      USES _DDRAB _DDRH _TSCR1 openlcd kp_init dip 
-                                puts2lcd _PTH randomNum randomIndex _PORTAB _SCI0BD 
-                                _SCI0CR1 _SCI0CR2 STRING.YUSUF.216 main 
-                                STRING.ALTUN.217 STRING.CSE_334.218 put2lcd STRING.Proje.219 
-                                hosgeldin delay_1ms _TFLG1 _TIOS _TCTL1 _TIE startM 
-                                reset STRING.Harf.Sayisi..220 randomKelimeUret PTHs 
-                                _SCI0SR1 _SCI0DRL manupileEt showWord sizeKelime 
-                                terminaleBas dogrumu flag yanlisSayi puan bitir dusdu 
-                                kelime kolaylikIndexi STRING.Harf.Sayisi..221 
-                                STRING.Puan....222 aferin STRING.Harf.Sayisi..223 
-                                STRING.Puan....224 sayiBas 
-terminaleBas              USES SerTx1 
-SerTx1                    USES _SCI0SR1 _SCI0DRL 
-sayiBas                   USES put2lcd 
-bitir                     USES openlcd STRING.Bitti.225 puts2lcd 
-                                STRING.Lose.226 terminaleBas delay_1ms kelime 
-dogrumu                   USES showWord kelime sizeKelime 
-manupileEt                USES flag kelime PTHs showWord kolaylikIndexi 
+                                puts2lcd _PTH _SCI0BD _SCI0CR1 _SCI0CR2 
+                                STRING.AHMET.216 main STRING.OZYILMAZ.217 STRING.111044014.218 
+                                STRING.CSE_334.219 STRING.Proje.220 BuzzerSettingAndCallMelo 
+                                STRING.TAS.KAGIT.221 STRING.MAKAS.OYUNU.222 
+                                STRING.TAS.ISE.1.E.BAS.223 STRING.KAGIT.ISE.224 STRING.2.YE.BAS.225 
+                                STRING.MAKAS.ISE.226 STRING.3.E.BAS.227 
+                                STRING.TAS...KAGIT...MAKAS..228 STRING.HANGISI.229 randomIndex _PORTAB 
+                                kp_get_key keypadNum randomNum delay_1ms UserScore 
+                                ComputerScore STRING.USER.SCORE..230 
+                                STRING.LOOK.7.SEGMENT..231 show7Seg delayTimerDelay 
+                                STRING.COMPUTER.SCORE..232 STRING.LOOK.7.SEGMENT..233 put2lcd reset 
 reset                     USES put2lcd delay_1ms 
 openlcd                   USES _DDRK delay_1ms put2lcd 
 puts2lcd                  USES put2lcd delay_50us 
 put2lcd                   USES _PORTK delay_50us 
+randomNum                 USES rand _TCNT 
+kp_init                   USES _DDRAB 
+kp_get_key                USES _PORTAB delay_1ms 
+BuzzerSettingAndCallMelo  USES _TFLG1 _TIOS _TCTL1 _TIE Melo2 
+delayTimerDelay           USES TimerDelay 
+TimerDelay                USES _TFLG2 
+show7Seg                  USES _DDRP _DDRAB _CASE_CHECKED_BYTE _PORTAB 
 delay_1ms                 USES delay_50us 
 timCh5                    USES PTHs _TC5 lastM _TCTL1 _TFLG1 
-randomNum                 USES rand _TCNT 
-randomKelimeUret          USES kolaylikIndexi _CASE_CHECKED_BYTE randomIndex 
-                                array2 array3 array4 array5 array6 array7 array8 
-                                array9 array10 array11 array12 array13 array14 
-                                array15 yerlestir array16 winMusic 
-yerlestir                 USES showWord kelime kolaylikIndexi 
-winMusic                  USES STRING..Win.Game...227 terminaleBas openlcd 
-                                STRING....Kazandin....228 puts2lcd PTHs delay_1ms melody lastM 
-startM                    USES PTHs melody lastM delay_1ms 
-kp_init                   USES _DDRAB 
+Melo2                     USES PTHs melody2 lastM _PORTAB delay_1ms 
 rand                      USES seed _LDIVS _LMODS _LMULS16x32 
 _LMULS16x32               USES _LNEG 
 _LDIVS                    USES _NEG_P _lDivMod 
@@ -3232,6 +2969,16 @@ DEPENDENCY TREE
  |  |  |  
  |  |  +- delay_50us           (see above)
  |  |     
+ |  +- BuzzerSettingAndCallMelo
+ |  |  | 
+ |  |  +- Melo2               
+ |  |     | 
+ |  |     +- delay_1ms            (see above)
+ |  |        
+ |  +- kp_get_key          
+ |  |  | 
+ |  |  +- delay_1ms            (see above)
+ |  |     
  |  +- randomNum           
  |  |  | 
  |  |  +- rand                
@@ -3252,57 +2999,23 @@ DEPENDENCY TREE
  |  |        | 
  |  |        +- _LNEG               
  |  |             
- |  +- put2lcd              (see above)
- |  |  
  |  +- delay_1ms            (see above)
  |  |  
- |  +- startM              
- |  |  | 
- |  |  +- delay_1ms            (see above)
- |  |     
- |  +- reset               
- |  |  | 
- |  |  +- put2lcd              (see above)
- |  |  |  
- |  |  +- delay_1ms            (see above)
- |  |     
- |  +- randomKelimeUret    
+ |  +- show7Seg            
  |  |  | 
  |  |  +- _CASE_CHECKED_BYTE  
- |  |  |    
- |  |  +- yerlestir           
- |  |  |    
- |  |  +- winMusic            
- |  |     | 
- |  |     +- terminaleBas        
- |  |     |  | 
- |  |     |  +- SerTx1              
- |  |     |       
- |  |     +- openlcd              (see above)
- |  |     |  
- |  |     +- puts2lcd             (see above)
- |  |     |  
- |  |     +- delay_1ms            (see above)
- |  |        
- |  +- manupileEt          
- |  |    
- |  +- terminaleBas         (see above)
- |  |  
- |  +- dogrumu             
- |  |    
- |  +- bitir               
+ |  |       
+ |  +- delayTimerDelay     
  |  |  | 
- |  |  +- openlcd              (see above)
- |  |  |  
- |  |  +- puts2lcd             (see above)
- |  |  |  
- |  |  +- terminaleBas         (see above)
- |  |  |  
- |  |  +- delay_1ms            (see above)
- |  |     
- |  +- sayiBas             
+ |  |  +- TimerDelay          
+ |  |       
+ |  +- put2lcd              (see above)
+ |  |  
+ |  +- reset               
  |     | 
  |     +- put2lcd              (see above)
+ |     |  
+ |     +- delay_1ms            (see above)
  |        
  +- _Startup            
     | 
@@ -3321,5 +3034,5 @@ STATISTIC SECTION
 ExeFile:
 --------
 Number of blocks to be downloaded: 7
-Total size of all blocks to be downloaded: 4446
+Total size of all blocks to be downloaded: 2031
 
