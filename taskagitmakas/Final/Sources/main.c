@@ -78,21 +78,39 @@ Do	523,5      */
 #define disable() __asm(sei)
 #define anable() __asm(cli)
 
+int melody[] = { la,la,sol,fa,fa,sol,la,sol,sol,fa,mi,mi,fa,sol,fa,fa,mi,re,re,mi,fa,fa,fa,mi,fa,re,re,re,re,re,re};	//80		 
+
+int melody1[] = { la,la,sol,fa,fa,sol,la,sol,sol,fa,mi,mi,fa,sol,fa,fa,mi,re,re,mi,fa,fa,fa,mi,fa,re,re,re,re,re,re};	//80		 
+ 
+int melody2[] = {sol,sol,sol,sol,sol,sol,sol,fa,mi,fa,mi,re,re,re,fa,mi,fa,mi,re,do2,sol,fa,mi,fa,mi,re,re,re,re};	//80		 
+
+ int melody3[] = {re,mi,fa,sol,fa,sol,sol,sol,fa,sol,sol,sol,fa,mi,re,mi,fa,sol,mi,fa,re,mi,do2,do2,fa,mi,re,re};
 
 
-//////////////////////
+int lastM = 0;
+int PTHs = 0;                  //Buzzer otturme
+int flag = 0;
+interrupt(((0x10000 - Vtimch5)/2)-1) void timCh5(void);
+void winMusic(void);
+
+
+////Final Project New Function /////
+
+  void BuzzerSettingAndCallMelo() ;
 
 
 
-
-
-
+    //////////////////////
+  // LCD Settings 
 #define LCD_DAT PORTK /*Port K drives LCD data pins, E, and RS */
 #define LCD_DIR DDRK /*Direction of LCD port */
 #define LCD_E 0x02 /*LCD E signal */
 #define LCD_RS 0x01 /*LCD Register Select signal */
 #define CMD 0 /*Command type for put2lcd */
 #define DATA 1 /*Data type for put2lcd */
+
+
+
 /* Prototypes for functions in lcd.c */
 void openlcd(void); /* Initialize LCD display */
 void reset(void);
@@ -179,31 +197,14 @@ int puan = 2000;
 
 
 
-int melody[] = { dos,re,mi,fa,sol,la,do2,do3,do2,
-				 do2,do2,sus,do2,do2,la,do2,do3,sus,do2,
-				 sus,la,sus,sus,sol,do2,do2,fa,do2,do2,
-				 dos,sus,re,sus,dos,dos,do2,sol,do2,do3,
-				 dos,sus,do3,do3,sus,do3,sus,la,do2,re,do2,
-				 la,do2,do2,sol,do2,do2,do2,do2,do2,dos,
-				 re,do2,dos,dos,do2,sol,do2,do3,dos,do2,
-				 do3,do3,do2,do2,do2,la,do2,re,sus,do2
-				};	//80			
- 
-
-
-
-
-
 #define ROW_NUM 4
 #define COL_NUM 4
 
 
-int lastM = 0;
-int PTHs = 0;                  //buzer otturme
+
 int yanlisSayi = 0;           //yanlis sayisi
 int randomIndex = 0;          //random kelimemin indexi
 int kolaylikIndexi = 2;      // 2 den basla 16 ya kadar ilerleyecek seviye
-int flag = 0;
 interrupt(((0x10000 - Vtimch5)/2)-1) void timCh5(void);
 void winMusic(void);
                  /* 48  0    57  9     asci ch - num*/
@@ -253,27 +254,51 @@ void main(void) {
     puts2lcd("Proje");
     delay_1ms(150);
     reset();
-    puts2lcd(hosgeldin);
+
+    //openlcd();
+    
+     BuzzerSettingAndCallMelo();
+     anable();
+     openlcd();
+    puts2lcd("TAS KAGIT");
+    put2lcd(0xC0,CMD);
+    puts2lcd("MAKAS OYUNU");
     delay_1ms(150);
+     reset();
+     
+     openlcd();
+      
+    puts2lcd("TAS ISE 1 E BAS");
+    put2lcd(0xC0,CMD);
+    delay_1ms(75);
+    
+    reset(); 
     openlcd();
     
-    // output For Buzer 
-    TFLG1 = 0x20;   //channel 5  clear ??
-    TIOS = TIOS | 0x20;
-    TCTL1 = TCTL1 & ~0x08;      //ptt5
-    TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
-    TIE = TIE | 0x20;
-    ///////////////////////////////
+    puts2lcd("KAGIT ISE");
+    put2lcd(0xC0,CMD);
+    puts2lcd("2 YE BAS");
+        delay_1ms(75);
+
+    reset(); 
+    openlcd();
+     
+    puts2lcd("MAKAS ISE");
+    put2lcd(0xC0,CMD);
+    puts2lcd("3 E BAS");
+    delay_1ms(75);
+    reset();   
     
-     anable();
-    startM();
-    reset();
     
+     
     
+       while(1);
     
   __asm(swi);
 
 } 
+
+
 
 /* Terminale string basma !!!!*/      
  void terminaleBas(char c[],int sizeC){
@@ -446,81 +471,8 @@ void put2lcd(char c, char type) {
 	delay_50us(1); /* Wait for command to execute */
 }
 
-/* need 50x24 = 1200 cycles */
 
 
-void delay_50us(int n)
-{
-  volatile int c;
-  for (;n>0;n--)
-  for (c=D50US;c>0;c--) ;
-}
-
-
-
-void delay_1ms(int n)
-{
-  for (;n>0;n--) delay_50us(200);
-}
-
-
-
-
-
-
-
-
-
-
-
-interrupt(((0x10000 - Vtimch5)/2)-1) void timCh5(void){
-
-
-
-
-
-
-   if(PTHs == 3) {
-      TCTL1 = TCTL1 & ~0x08;      //ptt5
-      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
-      TC5 = TC5 + ilk;
-  
-   }
-    
-    
-   if(PTHs == 2)
-{
-      TCTL1 = TCTL1 & ~0x08;      //ptt5
-      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
-      TC5 = TC5 + orta;
-  
-   }
-   if(PTHs == 1)
-  {
-      TCTL1 = TCTL1 & ~0x08;      //ptt5
-      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
-      TC5 = TC5 + son;
-  
-   }
-  if(PTHs == 4)
-  {
-      TCTL1 = TCTL1 & ~0x08;      //ptt5
-      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
-      TC5 = TC5 + lastM;
-  
-   }
-   if(PTHs == 0)
-      TCTL1 = 0x00;
-   
-   
-   
-      TFLG1 = 0x20;   //0x02  clear ??
-  
-  
-  
- 
-  
-}
 void buzer(int time){
   
      int buz;
@@ -708,4 +660,210 @@ int kp_get_key(void)
       
     }
   } 
+}
+
+   /////////////////////final Project
+
+  void BuzzerSettingAndCallMelo() {
+                // output For Buzer 
+    TFLG1 = 0x20;   //channel 5  clear ??
+    TIOS = TIOS | 0x20;
+    TCTL1 = TCTL1 & ~0x08;      //ptt5
+    TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
+    TIE = TIE | 0x20;
+    ///////////////////////////////
+    
+      anable();
+      Melo2();   
+      disable();
+ }
+     /////////////////////final Project
+
+   /////////////////////Hw2
+ //Timer Delay 
+void delayTimerDelay5s(){ // 5snye delay 
+  int i = 0;
+  for(;i<5;++i )   //
+    delayTimerDelay();
+}
+
+ //Timer Delay 
+void delayTimerDelay10s(){ // 5snye delay 
+  int i = 0;
+  for(;i<2;++i )   //10 sn ye delay 
+    delayTimerDelay5s();
+}
+
+
+//Timer Delay 
+void delayTimerDelay(){
+  int i = 0;
+  for(;i<367;++i )   //24 000 000 / 656 1 saniye  ye
+    TimerDelay();
+}
+//Timer Overflow Function
+void TimerDelay(){
+       TFLG2 = 0X80;
+     while(!(TFLG2 & 0X80));{
+     }
+     TFLG2 = 0X80 | TFLG2;
+
+}
+
+
+
+    void  show7Seg(unsigned int recived,unsigned int ledNum){
+   DDRP = ledNum;
+   DDRB = 0XFF; //PORTB OUTPUT
+   
+     
+   switch(recived){
+    case 0:
+    PORTB = 0b00111111;
+    break;
+    
+    case 1:
+    PORTB = 0b00000110;
+    break;
+    case 2:
+    PORTB = 0b01011011;    
+    break;
+   
+    case 3:
+    PORTB = 0b10001111;    
+
+    break;
+    
+    case 4:
+    PORTB = 0b01100110;       
+    break;
+    
+    case 5:
+    PORTB = 0b01101101;       
+    break;   
+
+    case 6:
+    PORTB = 0b01111101;       
+
+    break;
+    
+    case 7:
+ 
+    PORTB = 0b00000111;       
+  
+    break;
+    
+    case 8:
+    PORTB = 0b01111111;
+
+    break;
+    
+    case 9:
+    PORTB = 0b01101111;
+
+    break;
+   }
+   
+}
+
+void delay_50us(int n)
+{
+  volatile int i;
+  for (;n>0;n--)
+    for (i=0 ;i<133;++i) ;
+}
+
+
+
+void delay_1ms(int n)
+{
+  for (;n>0;n--) delay_50us(200);
+}
+
+//intterrupt kullanýldý.     
+interrupt(((0x10000 - Vtimch5)/2)-1) void timCh5(void){
+
+
+   if(PTHs == 3) {
+      TCTL1 = TCTL1 & ~0x08;      //ptt5
+      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
+      TC5 = TC5 + ilk;
+  
+   }
+    
+    
+   if(PTHs == 2)
+    {
+      TCTL1 = TCTL1 & ~0x08;      //ptt5
+      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
+      TC5 = TC5 + orta;
+  
+   }
+   if(PTHs == 1)
+  {
+      TCTL1 = TCTL1 & ~0x08;      //ptt5
+      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
+      TC5 = TC5 + son;
+  
+   }
+  if(PTHs == 4)
+  {
+      TCTL1 = TCTL1 & ~0x08;      //ptt5
+      TCTL1 = TCTL1 | 0x04;     //tctl = 0000- 01 -00
+      TC5 = TC5 + lastM;
+  
+   }
+   if(PTHs == 0)
+      TCTL1 = 0x00;
+
+      TFLG1 = 0x20;   //0x02  clear ??
+
+}
+
+
+
+
+
+void Melo(void){
+  int secD = 83,i,j;
+	PTHs = 0;
+	PTHs = 4; //lastM calicak
+	for(j = 0; j <1; ++j){
+  	for(i = 0; i < 28; ++i){
+  		lastM = melody3[i];
+  		  PORTB = lastM;
+
+  		delay_1ms(1000/secD);
+  	}
+  }
+	PTHs = 0;
+} 
+void Melo1(void){
+  int secD = 83,i,j;
+	PTHs = 0;
+	PTHs = 4; //lastM calicak
+	for(j = 0; j < 1; ++j){
+  	for(i = 0; i < 28; ++i){
+  		lastM = melody1[i];
+  		PORTB = lastM;
+  		delay_1ms(1000/secD);
+  	}
+  }
+	PTHs = 0;
+}
+void Melo2(void){
+  int secD = 83,i,j;
+	PTHs = 0;
+	PTHs = 4; //lastM calicak
+	for(j = 0; j <1 ; ++j){
+  	for(i = 0; i < 28; ++i){
+  		lastM = melody2[i];
+  	  PORTB = lastM;
+
+  		delay_1ms(1000/secD);
+  	}
+  }
+	PTHs = 0;
+  
+  
 }
