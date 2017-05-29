@@ -1132,24 +1132,24 @@ MODULE:                 -- main.c.o --
      timCh5                                    C51D      50      80       1   .text       
      Melo2                                     C56D      48      72       1   .text       
 - VARIABLES:
-     STRING.AHMET.216                          C045       6       6       1   .rodata1    
-     STRING.OZYILMAZ.217                       C04B       9       9       1   .rodata1    
-     STRING.111044014.218                      C054       A      10       1   .rodata1    
-     STRING.CSE_334.219                        C05E       8       8       1   .rodata1    
-     STRING.Proje.220                          C066       6       6       1   .rodata1    
-     STRING.TAS.KAGIT.221                      C06C       A      10       1   .rodata1    
-     STRING.MAKAS.OYUNU.222                    C076       C      12       1   .rodata1    
-     STRING.TAS.ISE.1.E.BAS.223                C082      10      16       1   .rodata1    
-     STRING.KAGIT.ISE.224                      C092       A      10       1   .rodata1    
-     STRING.2.YE.BAS.225                       C09C       9       9       1   .rodata1    
-     STRING.MAKAS.ISE.226                      C0A5       A      10       1   .rodata1    
-     STRING.3.E.BAS.227                        C0AF       8       8       1   .rodata1    
-     STRING.TAS...KAGIT...MAKAS..228           C0B7      15      21       1   .rodata1    
-     STRING.HANGISI.229                        C0CC       8       8       1   .rodata1    
-     STRING.USER.SCORE..230                    C0D4       C      12       1   .rodata1    
-     STRING.LOOK.7.SEGMENT..231                C0E0      10      16       1   .rodata1    
-     STRING.COMPUTER.SCORE..232                C0F0      10      16       1   .rodata1    
-     STRING.LOOK.7.SEGMENT..233                C100      10      16       1   .rodata1    
+     STRING.AHMET.7                            C045       6       6       1   .rodata1    
+     STRING.OZYILMAZ.8                         C04B       9       9       1   .rodata1    
+     STRING.111044014.9                        C054       A      10       1   .rodata1    
+     STRING.CSE_334.10                         C05E       8       8       1   .rodata1    
+     STRING.Proje.11                           C066       6       6       1   .rodata1    
+     STRING.TAS.KAGIT.12                       C06C       A      10       1   .rodata1    
+     STRING.MAKAS.OYUNU.13                     C076       C      12       1   .rodata1    
+     STRING.TAS.ISE.1.E.BAS.14                 C082      10      16       1   .rodata1    
+     STRING.KAGIT.ISE.15                       C092       A      10       1   .rodata1    
+     STRING.2.YE.BAS.16                        C09C       9       9       1   .rodata1    
+     STRING.MAKAS.ISE.17                       C0A5       A      10       1   .rodata1    
+     STRING.3.E.BAS.18                         C0AF       8       8       1   .rodata1    
+     STRING.TAS...KAGIT...MAKAS..19            C0B7      15      21       1   .rodata1    
+     STRING.HANGISI.20                         C0CC       8       8       1   .rodata1    
+     STRING.USER.SCORE..21                     C0D4       C      12       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..22                 C0E0      10      16       1   .rodata1    
+     STRING.COMPUTER.SCORE..23                 C0F0      10      16       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..24                 C100      10      16       1   .rodata1    
      melody2                                   1100      3A      58       1   .data       
      dip                                       113A      14      20       1   .data       
      lastM                                     1152       2       2       3   .bss        
@@ -1208,12 +1208,12 @@ SECTION: ".bss"
 SECTION: ".init"
   Init _Startup 
 SECTION: ".rodata1"
-  STRING.AHMET.216 STRING.OZYILMAZ.217 STRING.111044014.218 STRING.CSE_334.219 
-  STRING.Proje.220 STRING.TAS.KAGIT.221 STRING.MAKAS.OYUNU.222 
-  STRING.TAS.ISE.1.E.BAS.223 STRING.KAGIT.ISE.224 STRING.2.YE.BAS.225 
-  STRING.MAKAS.ISE.226 STRING.3.E.BAS.227 STRING.TAS...KAGIT...MAKAS..228 
-  STRING.HANGISI.229 STRING.USER.SCORE..230 STRING.LOOK.7.SEGMENT..231 
-  STRING.COMPUTER.SCORE..232 STRING.LOOK.7.SEGMENT..233 
+  STRING.AHMET.7 STRING.OZYILMAZ.8 STRING.111044014.9 STRING.CSE_334.10 
+  STRING.Proje.11 STRING.TAS.KAGIT.12 STRING.MAKAS.OYUNU.13 
+  STRING.TAS.ISE.1.E.BAS.14 STRING.KAGIT.ISE.15 STRING.2.YE.BAS.16 
+  STRING.MAKAS.ISE.17 STRING.3.E.BAS.18 STRING.TAS...KAGIT...MAKAS..19 
+  STRING.HANGISI.20 STRING.USER.SCORE..21 STRING.LOOK.7.SEGMENT..22 
+  STRING.COMPUTER.SCORE..23 STRING.LOOK.7.SEGMENT..24 
 SECTION: ".abs_section_8"
   _PORTE 
 SECTION: ".abs_section_9"
@@ -2809,24 +2809,24 @@ OBJECT LIST SORTED BY ADDRESS
      randomIndex                               115C       2       2       7   .bss        
      Init                                      C000      29      41       1   .init       
      _Startup                                  C029      12      18       0   .init       
-     STRING.AHMET.216                          C045       6       6       1   .rodata1    
-     STRING.OZYILMAZ.217                       C04B       9       9       1   .rodata1    
-     STRING.111044014.218                      C054       A      10       1   .rodata1    
-     STRING.CSE_334.219                        C05E       8       8       1   .rodata1    
-     STRING.Proje.220                          C066       6       6       1   .rodata1    
-     STRING.TAS.KAGIT.221                      C06C       A      10       1   .rodata1    
-     STRING.MAKAS.OYUNU.222                    C076       C      12       1   .rodata1    
-     STRING.TAS.ISE.1.E.BAS.223                C082      10      16       1   .rodata1    
-     STRING.KAGIT.ISE.224                      C092       A      10       1   .rodata1    
-     STRING.2.YE.BAS.225                       C09C       9       9       1   .rodata1    
-     STRING.MAKAS.ISE.226                      C0A5       A      10       1   .rodata1    
-     STRING.3.E.BAS.227                        C0AF       8       8       1   .rodata1    
-     STRING.TAS...KAGIT...MAKAS..228           C0B7      15      21       1   .rodata1    
-     STRING.HANGISI.229                        C0CC       8       8       1   .rodata1    
-     STRING.USER.SCORE..230                    C0D4       C      12       1   .rodata1    
-     STRING.LOOK.7.SEGMENT..231                C0E0      10      16       1   .rodata1    
-     STRING.COMPUTER.SCORE..232                C0F0      10      16       1   .rodata1    
-     STRING.LOOK.7.SEGMENT..233                C100      10      16       1   .rodata1    
+     STRING.AHMET.7                            C045       6       6       1   .rodata1    
+     STRING.OZYILMAZ.8                         C04B       9       9       1   .rodata1    
+     STRING.111044014.9                        C054       A      10       1   .rodata1    
+     STRING.CSE_334.10                         C05E       8       8       1   .rodata1    
+     STRING.Proje.11                           C066       6       6       1   .rodata1    
+     STRING.TAS.KAGIT.12                       C06C       A      10       1   .rodata1    
+     STRING.MAKAS.OYUNU.13                     C076       C      12       1   .rodata1    
+     STRING.TAS.ISE.1.E.BAS.14                 C082      10      16       1   .rodata1    
+     STRING.KAGIT.ISE.15                       C092       A      10       1   .rodata1    
+     STRING.2.YE.BAS.16                        C09C       9       9       1   .rodata1    
+     STRING.MAKAS.ISE.17                       C0A5       A      10       1   .rodata1    
+     STRING.3.E.BAS.18                         C0AF       8       8       1   .rodata1    
+     STRING.TAS...KAGIT...MAKAS..19            C0B7      15      21       1   .rodata1    
+     STRING.HANGISI.20                         C0CC       8       8       1   .rodata1    
+     STRING.USER.SCORE..21                     C0D4       C      12       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..22                 C0E0      10      16       1   .rodata1    
+     STRING.COMPUTER.SCORE..23                 C0F0      10      16       1   .rodata1    
+     STRING.LOOK.7.SEGMENT..24                 C100      10      16       1   .rodata1    
      main                                      C110     1BF     447      26   .text       
      reset                                     C2CF      23      35       1   .text       
      openlcd                                   C2F2      2D      45       9   .text       
@@ -2858,8 +2858,7 @@ UNUSED-OBJECTS SECTION
 ---------------------------------------------------------------------------------------------
 NOT USED PROCEDURES
 main.c.o:
-  terminaleBas SerTx1 buzer randomKelimeUret yerlestir winMusic startM 
-  delayTimerDelay5s delayTimerDelay10s Melo Melo1 
+  terminaleBas SerTx1 delayTimerDelay5s delayTimerDelay10s Melo Melo1 
 STDLIB.C.o (ansisi.lib):
   atexit getenv system mblen mbtowc wctomb mbstowcs wcstombs CheckCharWithBase 
   _strtoul strtoul _strtol strtol _itoa bsearch swap qsort div ldiv abs labs 
@@ -2872,10 +2871,8 @@ rtshc12.c.o (ansisi.lib):
   _CASE_SEARCH_8_BYTE _FCALL _FPCMP 
 NOT USED VARIABLES
 main.c.o:
-  STRING..Win.Game...234 STRING....Kazandin....235 melody melody1 melody3 
-  array2 array3 array4 array5 array6 array7 array8 array9 array10 array11 
-  array12 array13 array14 array15 array16 kelime dusdu hosgeldin aferin 
-  sizeKelime showWord puan kolaylikIndexi flag yanlisSayi 
+  melody melody1 melody3 kelime dusdu hosgeldin aferin sizeKelime showWord 
+  puan kolaylikIndexi flag yanlisSayi 
 STDLIB.C.o (ansisi.lib):
   channels errno 
 rtshc12.c.o (ansisi.lib):
@@ -2913,17 +2910,17 @@ OBJECT-DEPENDENCIES SECTION
 Init                      USES _startupData 
 _Startup                  USES __SEG_END_SSTACK Init main 
 main                      USES _DDRAB _DDRH _TSCR1 openlcd kp_init dip 
-                                puts2lcd _PTH _SCI0BD _SCI0CR1 _SCI0CR2 
-                                STRING.AHMET.216 main STRING.OZYILMAZ.217 STRING.111044014.218 
-                                STRING.CSE_334.219 STRING.Proje.220 BuzzerSettingAndCallMelo 
-                                STRING.TAS.KAGIT.221 STRING.MAKAS.OYUNU.222 
-                                STRING.TAS.ISE.1.E.BAS.223 STRING.KAGIT.ISE.224 STRING.2.YE.BAS.225 
-                                STRING.MAKAS.ISE.226 STRING.3.E.BAS.227 
-                                STRING.TAS...KAGIT...MAKAS..228 STRING.HANGISI.229 randomIndex _PORTAB 
+                                puts2lcd _PTH _SCI0BD _SCI0CR1 _SCI0CR2 STRING.AHMET.7 
+                                main STRING.OZYILMAZ.8 STRING.111044014.9 
+                                STRING.CSE_334.10 STRING.Proje.11 BuzzerSettingAndCallMelo 
+                                STRING.TAS.KAGIT.12 STRING.MAKAS.OYUNU.13 
+                                STRING.TAS.ISE.1.E.BAS.14 STRING.KAGIT.ISE.15 STRING.2.YE.BAS.16 
+                                STRING.MAKAS.ISE.17 STRING.3.E.BAS.18 
+                                STRING.TAS...KAGIT...MAKAS..19 STRING.HANGISI.20 randomIndex _PORTAB 
                                 kp_get_key keypadNum randomNum delay_1ms UserScore 
-                                ComputerScore STRING.USER.SCORE..230 
-                                STRING.LOOK.7.SEGMENT..231 show7Seg delayTimerDelay 
-                                STRING.COMPUTER.SCORE..232 STRING.LOOK.7.SEGMENT..233 put2lcd reset 
+                                ComputerScore STRING.USER.SCORE..21 
+                                STRING.LOOK.7.SEGMENT..22 show7Seg delayTimerDelay 
+                                STRING.COMPUTER.SCORE..23 STRING.LOOK.7.SEGMENT..24 put2lcd reset 
 reset                     USES put2lcd delay_1ms 
 openlcd                   USES _DDRK delay_1ms put2lcd 
 puts2lcd                  USES put2lcd delay_50us 

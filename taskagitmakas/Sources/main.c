@@ -91,7 +91,6 @@ int lastM = 0;
 int PTHs = 0;                  //Buzzer otturme
 int flag = 0;
 interrupt(((0x10000 - Vtimch5)/2)-1) void timCh5(void);
-void winMusic(void);
 
 
 ////Final Project New Function /////
@@ -123,71 +122,12 @@ void put2lcd(char c, char type); /*Write command /data to LCD controller */
 void puts2lcd (char *ptr); /* Write a string to the LCD display */
 void delay_50us(int n); /* Delay n 50 microsecond intervals */
 void delay_1ms(int n); /* Delay n 1 millisecond intervals */
-void yerlestir(char arr[]);
-void manupileEt(char harf);
 void SerTx1(unsigned char c);
-void randomKelimeUret();
 void terminaleBas(char c[],int size);
 void kp_init(void);
 int kp_get_key(void);
-void buzer(int a);
-void startM(void);
-void bitir(void);
+
 int randomNum(void);
-void sayiBas(int skor);
-//15 tane array var
-//14 tane kelimenden olusuyorlar random secicem bunlari
-char array2[14][2] = {{"am"},{"we"} ,{"he"}, {"go"},{"me"}, {"on"}, {"up"}, 
-                      {"um"}, {"an"}, {"jo"}, {"ka"}, {"ki"}, {"ox"}, {"ti"}  };
-                      
-char array3[14][3] = {{"are"},{"lol"} ,{"two"}, {"map"} ,{"tag"} ,{"poi"}, {"sup"} ,
-                      {"zoo"},{"moc"} ,{"mod"}, {"ria"} ,{"job"} ,{"joe"}, {"ops"}  };
-
-char array4[14][4] = {{"fuss"},{"gain"},{"gale"},{"juts"},{"keep"},{"rove"} ,{"zoos"} ,  
-                      {"glar"},{"able"},{"flax"},{"flex"},{"keen"},{"loud"} ,{"zoom"} };
-
-char array5[14][5] = {{"yards"},{"swarm"},{"waked"},{"mares"},{"skiff"},{"canon"},{"coves"} ,
-                      {"wagon"},{"wedge"},{"smash"},{"pound"},{"salts"},{"mused"},{"cells"} };
-
-char array6[14][6] = {{"amazer"},{"cudgel"},{"cuffed"},{"glover"},{"logged"},{"piracy"},{"slopes"},
-                        {"zombie"},{"zodiac"},{"winded"},{"yeoman"},{"zircon"},{"zebras"},{"wobble"} };
-
-char array7[14][7] = {{"abdomen"},{"abiding"},{"ability"},{"brother"},{"nuggets"},{"lawyers"},{"hammers"}  ,   
-                       {"slapped"},{"restart"},{"restage"},{"resolve"},{"rebuilt"},{"chopped"},{"explode"}   };
-
-char array8[14][8] = {{"authored"},{"apothegm"},{"audacity"},{"bareness"},{"bassinet"},{"castrate"},{"connoted"},
-                       {"deceives"},{"depraved"},{"desserts"},{"flinched"},{"indirect"},{"outstrip"},{"penalize"},
-                           };
-
-char array9[14][9] = {{"asymmetry"},{"barbecues"},{"bryophyte"},{"conserves"},{"expecting"},{"infecting"},{"ludicrous"} ,
-                      {"midpoints"},{"oligocene"},{"poppycock"},{"regiments"},{"seriously"},{"subscript"},{"unspoiled"}   };
-
-char array10[14][10] = {{"aberration"},{"antinomian"},{"backstairs"},{"backstroke"},{"bequeathal"},{"boatswains"},{"clinically"} ,
-                          {"congenital"},{"earthquake"},{"fragrantly"},{"intimidate"},{"patriarchs"},{"speechless"},{"undertakes"}  };
-
-char array11[14][11] = {{"anencephaly"},{"accumulated"},{"aimlessness"},{"antagonisms"},{"bottlenecks"},{"burglarizes"},{"conformists"} ,
-                          {"descendents"},{"duplicative"},{"fiddlestick"},{"headhunters"},{"innoculates"},{"metalworker"},{"paternoster"}  };
-
-char array12[14][12] = {{"absoluteness"},{"abstractions"},{"antioxidants"},{"bushwhacking"},{"compensating"},{"counterpoint"},{"demonstrator"} ,
-                          {"digitization"},{"dishonorable"},{"electrolytes"},{"exacerbating"},{"pressurizing"},{"unreasonable"},{"withholdings"}  };
-
-char array13[14][13] = {{"alphabetizing"},{"alternatively"},{"applicability"},{"changeability"},{"canonicalizes"},{"decentralized"},{"developmental"} ,
-                          {"electrocuting"},{"electrocution"},{"electrophorus"},{"exterminating"},{"individualism"},{"microorganism"},{"noncumulative"}  };
-                          
-                          
-char array14[14][14] = {{"appropriations"},{"approximations"},{"archaeological"},{"claustrophobia"},{"clearinghouses"},{"climatologists"},{"credentialisms"} ,
-                        {"denominational"},{"disappointment"},{"indigenousness"},{"individualists"},{"methodological"},{"worthwhileness"} };
-
-char array15[14][15] = {{"counterexamples"},{"countermeasures"},{"conscientiously"},{"electrification"},
-                        {"electrochemical"},{"fundamentalists"},{"identifications"}  ,{"misapprehension"} ,
-                          {"misappropriated"},{"preservationist"},{"psychochemicals"},
-                          {"responsibleness"},{"unconsciousness"},{"weatherproofing"}};
-
-char array16[14][16] = {{"antagonistically"},{"canonicalization"},{"distributorships"},{"multiprogramming"},
-                        {"unidirectionally"},{"unrepresentative"},{"nonbiodegradable"}  ,{"sensationalizing"} ,
-                        {"antagonistically"},{"canonicalization"},{"distributorships"},{"multiprogramming"},
-                        {"unidirectionally"},{"unrepresentative"} };
-                        
 
 int keypadNum = 0;
 char kelime[16] = "lanlunAn";       //_a____a_
@@ -211,7 +151,7 @@ int yanlisSayi = 0;           //yanlis sayisi
 int randomIndex = 0;          //random kelimemin indexi
 int kolaylikIndexi = 2;      // 2 den basla 16 ya kadar ilerleyecek seviye
 interrupt(((0x10000 - Vtimch5)/2)-1) void timCh5(void);
-void winMusic(void);
+
                  /* 48  0    57  9     asci ch - num*/
 void main(void) {
     
@@ -386,14 +326,6 @@ void main(void) {
   }
 
 
-
-
-
-
-
-
-
-
 //ekrani hizli temizlesin diye openlcddeki beklemeleri sildim
 void reset(void){
   
@@ -459,21 +391,6 @@ void put2lcd(char c, char type) {
 
 
 
-void buzer(int time){
-  
-     int buz;
-     for(buz = 0; buz < 11; buz++) 	//100 degistir 		
-            {
-            
-               DDRT = DDRT | 0x70;    // PTT as output  70 i
-               PTT = PTT | 0x70;      //make PT0=1
-               delay_1ms(time);         //change the delay size to see what happens
-               PTT = PTT &(~0x70);      //Make PT0=0
-               delay_1ms(time);         //change delay size....
-
-            } 
-}
-
 
  // 0 --- 6 arasi degistir
  //random sayilar ureten fonksiyonumuz
@@ -489,118 +406,6 @@ int randomNum()
   
 }
 
-
- // size gore o sizeda random kelime vericek
-void randomKelimeUret(){
-  switch( kolaylikIndexi ){
-  
-  
-
-    
- case 2:
-      yerlestir(array2[randomIndex]);
-      break;
- case 3:
-      yerlestir(array3[randomIndex]);
-      break;
- case 4:
-      yerlestir(array4[randomIndex]);
-      break;
- case 5:
-      yerlestir(array5[randomIndex]);
-      break;
- case 6:
-      yerlestir(array6[randomIndex]);
-      break;
- case 7:
-      yerlestir(array7[randomIndex]);
-      break;
- case 8:
-      yerlestir(array8[randomIndex]);
-      break;
- case 9:
-      yerlestir(array9[randomIndex]);
-      break;
- case 10:
-      yerlestir(array10[randomIndex]);
-      break;
- case 11:
-      yerlestir(array11[randomIndex]);
-      break;
- case 12:
-      yerlestir(array12[randomIndex]);
-      break;
- case 13:
-      yerlestir(array13[randomIndex]);
-      break;
- case 14:
-      yerlestir(array14[randomIndex]);
-      break;     
- case 15:
-      yerlestir(array15[randomIndex]);
-    break;
- case 16:
-      yerlestir(array16[randomIndex]);
- case 17:
-      winMusic();
-    break;
-    
-
-  }
-}
- 
- //random kelimeyi yerlestiriyorum
-void yerlestir(char arr[]){
-
-
-
-    int i;
-    
-    
-    for(i = 0; i < kolaylikIndexi; ++i) {
-           showWord[i] = '_';
-           kelime[i] =  arr[i];
-    }
-    kelime[i] = '\0' ;
-    showWord[i] = '\0';
-    
-
-  
-}
- //mario gibi calicak tam degil ama 
-void winMusic(void){
-	int i;
-	int secD = 83,secD2 = 11;
-
-	terminaleBas(" Win Game  " , 9);
-	openlcd();
-	puts2lcd("** Kazandin **");
-	PTHs = 0;
-	delay_1ms(secD2);
-	PTHs = 4; //lastM calicak
-	for(i = 0; i < 80; ++i){
-		lastM = melody[i];
-		if(i > 40)
-			delay_1ms(1000/secD2);
-		else
-			delay_1ms(1000/secD);
-	}
-	PTHs = 0;
-}
-void startM(void){
-  int secD = 83,i,j;
-	PTHs = 0;
-	PTHs = 4; //lastM calicak
-	for(j = 0; j < 2; ++j){
-  	for(i = 0; i < 32; ++i){
-  		lastM = melody[i];
-  		delay_1ms(1000/secD);
-  	}
-  }
-	PTHs = 0;
-  
-  
-}
 
 
 /**
